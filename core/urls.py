@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.list_games, name='home'),
     path('games/<int:pk>', views.game_detail, name='game-detail'),
-    path('games/new', views.create_game, name='new-game')
+    path('games/new', views.create_game, name='new-game'),
+    path('games/<int:pk>/delete', views.delete_game, name='delete-game'),
 ]

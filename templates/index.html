@@ -14,5 +14,6 @@
     {% for game in games %}
     <p class='game'><a href="{% url 'game-detail' game.pk %}">{{game}}</a></p>
     {% endfor %}
+    <a href="{% url 'new-game' %}">ADD A NEW GAME</a>
 </body>
 </html>

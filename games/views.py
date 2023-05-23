@@ -19,9 +19,21 @@ def game_detail(request, pk):
     return render(request, 'game_detail.html', {'game': game})
 
 
+def delete_game(request, pk):
+    game = get_object_or_404(Game, pk=pk)
+    game.delete()
+    return redirect('home')
+
+
 def create_game(request):
     # create new game
-    form = GameForm()
+    if request.method == 'GET':
+        form = GameForm()
+        # when the user visits the page, render a blank form
+    else:
+        # Django forms only handle GET and POST, so submitting the form will be a POST request
+        form = GameForm(request.POST)
+        form.save()
+        # Saves the new instance of Game in the database
+        return redirect('home')
     return render(request, 'new_game.html', {'form': form})
-
-    # return redirect('home')

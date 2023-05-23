@@ -13,5 +13,6 @@
     {% if game.age_range %}
     <p>Age Range: {{ game.age_range }}</p>
     {% endif %}
+    <a href="{% url 'delete-game' game.pk %}">DELETE</a>
 </body>
 </html>
