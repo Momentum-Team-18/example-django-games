@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from .forms import GameForm
 from .models import Game
 
 # Create your views here.
@@ -16,3 +17,11 @@ def game_detail(request, pk):
     # use get_object_or_404 to handle pks that are not in db without breaking
     game = get_object_or_404(Game, pk=pk)
     return render(request, 'game_detail.html', {'game': game})
+
+
+def create_game(request):
+    # create new game
+    form = GameForm()
+    return render(request, 'new_game.html', {'form': form})
+
+    # return redirect('home')
