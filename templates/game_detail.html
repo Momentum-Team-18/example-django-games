@@ -8,6 +8,10 @@
 </head>
 <body>
     <h2>Game Detail</h2>
-    <p>{{game}}</p>
+    <h4>{{game}}</h4>
+    <p>Number of players: {{ game.number_of_players }}</p>
+    {% if game.age_range %}
+    <p>Age Range: {{ game.age_range }}</p>
+    {% endif %}
 </body>
 </html>
