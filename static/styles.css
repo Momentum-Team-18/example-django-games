@@ -2,3 +2,9 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 24px;
 }
+body {
+    background-image: url('https://placekitten.com/200/300');
+}
+form {
+    padding: 100px;
+}

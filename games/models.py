@@ -8,6 +8,7 @@ class Game(models.Model):
     number_of_players = models.IntegerField()
     age_range = models.CharField(max_length=200, blank=True, null=True)
     # fields are required by default, make optional with blank=True, null=True
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
