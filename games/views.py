@@ -45,8 +45,9 @@ def edit_game(request, pk):
         form = GameForm(instance=game)
         # passing the instance argument puts the existing data in the form
     else:
-        form = GameForm(request.POST)
-        form.save()
-        # this will update the instance in the db
-        return redirect('game-detail', pk=pk)
+        form = GameForm(request.POST, instance=game)
+        if form.is_valid():
+            form.save()
+            # this will update the instance in the db
+            return redirect('game-detail', pk=pk)
     return render(request, 'games/edit_game.html', {'form': form})

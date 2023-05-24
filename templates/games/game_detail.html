@@ -9,6 +9,9 @@
     {% if game.age_range %}
     <p>Age Range: {{ game.age_range }}</p>
     {% endif %}
+    {% if game.company %}
+    <p>Made By: {{game.company}}</p>
+    {% endif %}
     <a href="{% url 'edit-game' game.pk %}">EDIT</a>
     <a href="{% url 'delete-game' game.pk %}">DELETE</a>
 {% endblock %}
