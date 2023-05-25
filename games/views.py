@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import GameForm
-from .models import Game
+from .models import Game, Company
 
 # Create your views here.
 
@@ -51,3 +51,15 @@ def edit_game(request, pk):
             # this will update the instance in the db
             return redirect('game-detail', pk=pk)
     return render(request, 'games/edit_game.html', {'form': form})
+
+
+def games_by_company(request, company_pk):
+    company = get_object_or_404(Company, pk=company_pk)
+    games = Game.objects.filter(company_id=company_pk)
+    # django ORM filters data
+    context = {
+        'company': company,
+        'games': games
+    }
+
+    return render(request, 'games/games_by_company.html', context)

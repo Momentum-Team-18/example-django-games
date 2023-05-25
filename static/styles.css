@@ -4,6 +4,7 @@
 }
 body {
     background-image: url('https://placekitten.com/200/300');
+    color: lightgreen;
 }
 form {
     padding: 100px;

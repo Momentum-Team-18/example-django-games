@@ -28,6 +28,7 @@ class Company(models.Model):
 
 class Player(models.Model):
     name = models.CharField(max_length=200)
+    team = models.ForeignKey(to='Team', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -36,3 +37,10 @@ class Player(models.Model):
 class Favorite(models.Model):
     player = models.ForeignKey(to='Player', on_delete=models.CASCADE)
     game = models.ForeignKey(to='Game', on_delete=models.CASCADE)
+
+
+class Team(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
